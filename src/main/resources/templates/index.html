@@ -1,0 +1,43 @@
+<!doctype html>
+<html
+    xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Estados</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"></header>
+        <h2>Listado de estados</h2>
+        <a th:href="@{/estados/nuevo}">Nuevo Estados</a>
+        <div th:if="${estados != null and !estados.empty}">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Id Estado</th>
+                        <th>Nombre</th>
+                        <th>Capital</th>
+                        <th>Población</th>
+                        <th>Tiene Costas</th>
+                        <th>Eliminar</th>
+                        <th>Modificar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="estado : ${estados}">
+                        <td>[[${estado.idEstado}]]</td>
+                        <td>[[${estado.nombre_estado}]]</td>
+                        <td>[[${estado.capital}]]</td>
+                        <td>[[${estado.poblacion}]]</td>
+                        <td>[[${estado.ind_costas}]]</td>
+                        <td><a th:href="@{/eliminarEstado/} + ${estado.idEstado}">Eliminar</a></td>
+                        <td><a th:href="@{/modificarEstado/} + ${estado.idEstado}">Modificar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:if="${estados == null or estados.empty}">
+            No se tienen clientes que mostrar!
+        </div>
+        <footer th:replace="layout/plantilla :: footer"></footer>
+    </body>
+</html>
