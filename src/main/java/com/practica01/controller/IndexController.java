@@ -18,7 +18,7 @@ public class IndexController {
         
         var estados = estadoService.getEstados();
         
-        model.addAttribute("estado", estados);
+        model.addAttribute("estados", estados);
 
         return "index";
     }
