@@ -13,9 +13,9 @@
         <hr />
         
         <form th:action="@{/estado/guardar}" method="post" th:object="${estado}">
-            <input type="hidden" name="idEstado" th:field="*{idEstado}" />
+            <input type="hidden" name="idEstado" th:field="*{id_estado}" />
             <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" th:field="*{nombre}" />
+            <input type="text" name="nombre" th:field="*{nombre_estado}" />
             <br />
             <label for="capital">Capital</label>
             <input type="text" name="capital" th:field="*{capital}" />
@@ -24,7 +24,7 @@
             <input type="number" name="poblacion" th:field="*{poblacion}" />
             <br />
             <label for="ind_costa">Tiene Costas</label>
-            <select name="ind_costa" th:field="*{ind_costa}">
+            <select name="ind_costa" th:field="*{IND_costas}">
                 <option value="S">Si</option>
                 <option value="N">No</option>
             </select>

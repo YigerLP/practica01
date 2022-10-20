@@ -19,13 +19,13 @@ public class EstadoController {
         return "modificarEstado";
     }
 
-    @PostMapping("/estado/guardarnuevo")
+    @PostMapping("/estado/guardar")
     public String guardarEstado(Estado estado) {
         estadoService.save(estado);
         return "redirect:/";
     }
 
-    @GetMapping("/modificarEstado/{idEstado}")
+    @GetMapping("/modificarEstado/{id_estado}")
     public String modificarEstado(Estado estado, Model model) {
 
         estado = estadoService.getEstado(estado);
@@ -34,7 +34,7 @@ public class EstadoController {
         return "modificarEstado";
     }
 
-    @GetMapping("/eliminarEstado/{idEstado}")
+    @GetMapping("/eliminarEstado/{id_estado}")
     public String eliminarEstado(Estado estado) {
 
         estadoService.delete(estado);
